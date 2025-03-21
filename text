@@ -1,0 +1,58 @@
+// Registratation
+app.post('/register',function(req,res){
+//console.log(req.body);
+    var name = req.body.name;
+    var username = req.body.username;
+    var email = req.body.email;
+    var password = req.body.password;
+    var phone = req.body.phone;
+
+     db.connect(function(err){
+        if(err) console.log(err);
+
+                   
+      var sql = `insert into loginuser(name,username,email,password,phone)values('${username}','${name}','${email}','${password}',${phone})`;
+      //console.log({sql});
+
+
+        db.query(sql,function(error,result){
+            if(error) console.log(error);
+            //yeh redirect select ke query ka h jo form ko fill karte or submit pe click karte he redirect kar deta hai
+res.redirect('/login');
+ // res.send('registration is succsessful'+result.insertId);
+       
+
+    
+        });
+     });
+ });
+
+//  // Login Route
+// app.post('/login', (req, res) => {
+// //console.log(req.body.name);
+//     const {name,password } = req.body;
+//     const sql = `SELECT * FROM loginuser WHERE name=?`;
+//   // console.log({sql});
+//     db.query(sql,[name], async (err, results) => {
+//         if (err) console.log(err);
+
+//         if (results.length === 0) {
+//             return res.status(400).send('User not founds');
+//         }
+
+//         const name = results[0];
+//         try {
+//             const isMatch = await bcrypt.compare(password, name.password);
+//             if (!isMatch) {
+//                 return res.status(400).send('Incorrect password');
+//             }
+//         } catch (error) {
+//             console.log(error);
+//             return res.status(500).send({ "msg" : error});
+//         }
+//         req.session.loggedin=true;
+//         req.session.name = name;
+//         //res.send('Succsessfully User logged in');
+//         res.redirect('/dashboard');
+//     });
+//  });

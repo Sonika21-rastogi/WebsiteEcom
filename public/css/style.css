@@ -156,19 +156,20 @@ letter-spacing: 2px;
    display: block;
 }
 
-.featured{
+section.featured{
    width: 100%;
    height: 50vh;
-   background-image:linear-gradient(to right ,rgba(0,0,0,0.8),55%,rgba(255,255,255,0.2)), url('unrechigh._CB582772908_.jpg');
+   background-image:linear-gradient(to right ,rgba(0,0,0,0.3),45%,rgba(250,205,295,0.1)) ,url("public/img/main.webp");
    background-size: cover;
    background-position: top;
    position: relative;
+   overflow: hidden;
 }
 
-.featured-text{
+/* .featured-text{
    max-width: 500px;
    position: absolute;
-   top: 30%;
+   top: 50%;
    right: 10%;
    color:white;
    text-align: center;
@@ -176,7 +177,7 @@ letter-spacing: 2px;
    font-size: 2rem;
    letter-spacing: 5px;
    font-family: "Akaya Kanadaka", cursive;
-}
+} */
 
 .featured-text button{
    padding: 10px 20px;
@@ -189,7 +190,7 @@ letter-spacing: 2px;
 }
 
 .latest{
-   padding:50px 100px;
+   padding:5px 100px ;
 }
 
 .product-intro{
@@ -315,7 +316,7 @@ footer p{
 
    footer i{
       margin: 0px 5px;
-   }
+   };
 
 
 

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Welcome back, <%= name %>!</h1>
+    <a href="/logout">Logout</a>
+
+
+
+    <h2>Update Record</h2>
+    <form id="updateForm">
+        <input type="number" id="updateId" placeholder="ID" required>
+        <input type="text" id="name" placeholder="name" required>
+        <input type="text" id="email" placeholder="email" required>
+        <button type="submit">Update</button>
+    </form>
+
+    <h2>Delete Record</h2>
+    <form id="deleteForm">
+        <input type="number" id="deleteId" placeholder="ID" required>
+        <button type="submit">Delete</button>
+    </form>
+
+</body>
+</html>
