@@ -5,7 +5,8 @@ const bcrypt = require('bcrypt');
 var cookieParser = require('cookie-parser')
 const session = require("express-session");
 const path = require('path');
-const port = 2010;
+const cors = require('cors');
+const port = 2020;
 
 //middle ware
 var bodyparser =require('body-parser');
@@ -14,6 +15,8 @@ app.use(bodyparser.json());
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname, "views"));
 app.use(cookieParser());
+app.use(cors());
+
 
 // static file ko use karne ke liye
 app.use(express.static(__dirname + '/public'));
@@ -32,6 +35,10 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
+app.get('/index', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views','/index.html'));
+});
+
 app.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'register.html'));
 });
@@ -43,6 +50,7 @@ app.get('/login', (req, res) => {
  
 // Register Route
 app.post('/register', async (req, res) => {
+    const userId = req.body.userId;
     const name = req.body.name;
     const username = req.body.username;
     const email = req.body.email;
@@ -50,10 +58,10 @@ app.post('/register', async (req, res) => {
     const phone = req.body.phone;   
      const hashedPassword = await bcrypt.hash(password, 10);
 
-    db.query('INSERT INTO loginuser(name,username,email,password,phone) VALUES (?,?,?,?,?)', [name,username,email,hashedPassword,phone ], (err, results) => {
+    db.query('INSERT INTO loginuser(name,userId,username,email,password,phone) VALUES (?,?,?,?,?,?)', [name,userId,username,email,hashedPassword,phone], (err, results) => {
         if (err) {
             res.send('Error during registration');
-            console.error(err);
+            console.log(err);
         } else {
             res.redirect('/login');
         }
@@ -117,6 +125,25 @@ app.get('/logout', (req, res) => {
     });
 });
 
-app.listen(2010,function(){
+app.get('/index', (req, res) => {
+     req.session.destroy((err) => 
+        { if (err) {
+            return console.log(err);
+        }
+        res.redirect('./index');
+     })
+    });
+    
+
+app.post('/add-to-cart',(req,res)=>{
+const {productId, name ,price, username, userId} = req.body;
+const query = `insert into carts(productId, name ,price, userId, username) values(${productId},'${name}',${price}, ${userId},'${username}')`;
+db.query(query, [productId, name, price, userId, username], (err, result)=>{
+    if (err) console.log(err);
+    res.json({message: 'Item added to cart'});
+});
+});
+
+app.listen(2020,function(){
 console.log(`server is listening on localhost://http:${port}`)
 });

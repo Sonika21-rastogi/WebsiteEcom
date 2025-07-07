@@ -9,18 +9,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,
-500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Roboto:ital,
 wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+
 
     <title>E-commerce</title>
 </head>
 <body>
-    <header>
   <nav class="nav1">
 <div class="left">
     <span>Welcome to my E-shop</span>
@@ -34,8 +33,14 @@ wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&dis
     <a href="https://www.whatsapp.com/"><i class="fa fa-whatsapp"></i></a>
         <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
             <a href="https://in.pinterest.com/"><i class="fa fa-pinterest"></i></a>
+               <!-- Cart Icon -->
+    <div class="cart-icon" onclick="openCart()">
+        🛒 <span id="cart-count">0</span>
+    </div>
+
 </div>
   </nav>
+  
 
   <!-- nav1 end-->
 
@@ -74,32 +79,35 @@ wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&dis
            <li><a href="#"><i class="fa fa-search"></i>Find</a></li>
         </ul>
       </nav>
-
       <!--nav3 end -->
 
       <!--featured start -->
- <section class="featured">
-    <img src="img/main.webp" alt="" height="282vh">
-    <!-- <div class="featured-text">
+
+<div class="w3-content w3-section">
+  <img class="mySlides" src="img/main.webp">
+  <img class="mySlides" src="img/heros.webp">
+  <img class="mySlides" src="img/newhero.webp">
+</div>
+
+
+ <!-- <section class="featured">
         <button>Comming Soon</button>
         <h2>Our New Designs</h2>
-        </div> -->
-    </div>
-
+        </div> 
+    </div> -->
        <!--featured end -->
-    </header>
 
            <!--latest section start -->
 <section class="latest">
 <div class="product-intro">
     <h1>New <span> Arrivals</span></h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>We Love New Things.</p>
 </div>
 
 <div class="card-container">
 <div class="card">
     <div>
-        <img src="img/black.webp" alt="">
+        <img src="img/DALL·E 2025-03-21 17.12.00 - A trendy smartwatch with a vibrant display, set against a clean white background. The smartwatch should have a sleek, modern design with a premium met.webp" alt="kids dress">
     </div>
     <h1>Air Capsule</h1>
     <span>
@@ -109,12 +117,28 @@ wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&dis
         <i class="fa fa-star"></i>
     </span>
     <p>$5500.00</p>
-    <button>Add to cart</button>
-
+    <button onclick="addToCart(1, 'Product 1', 10, 1)">Add to Cart</button>
 </div>
+
+
+    <!-- Cart Icon -->
+    <div class="cart-icon" onclick="openCart()">
+        🛒 <span id="cart-count">0</span>
+    </div>
+
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <h2>Your Cart</h2>
+            <ul id="cart-items"></ul>
+        </div>
+    </div>
+
 <div class="card">
     <div>
-        <img src="img/4th.webp" alt="">
+        <img src="img/DALL·E 2025-03-21 17.11.52 - A pair of fashionable sneakers with a futuristic design, set against a clean white background. The sneakers should have a sleek, modern aesthetic with.webp" alt="">
     </div>
     <h1>LCR</h1>
     <span>
@@ -124,13 +148,13 @@ wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&dis
         <i class="fa fa-star"></i>
     </span>
     <p>$5500.00</p>
-    <button>Add to cart</button>
+    <button onclick="addToCart(2, 'Product 2', 15, 2)">Add to Cart</button>
 
 </div>
 
 <div class="card">
     <div>
-        <img src="img/shoes.webp" alt="">
+        <img src="img/DALL·E 2025-03-21 17.11.58 - A premium leather backpack with a minimalist design, set against a clean white background. The backpack should have a sleek, high-end look with fine s.webp" alt="">
     </div>
     <h1>Air Capsule</h1>
     <span>
@@ -140,13 +164,13 @@ wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&dis
         <i class="fa fa-star"></i>
     </span>
     <p>$4500.00</p>
-    <button>Add to cart</button>
+    <button onclick="addToCart(3, 'Product 3', 25 ,3)">Add to Cart</button>
 
 </div>
 
 <div class="card">
     <div>
-        <img src="img/2nd.webp" alt="">
+        <img src="img/DALL·E 2025-03-21 17.12.03 - A stylish pair of wireless headphones with a sleek modern design, set against a clean white background. The headphones should have a premium, high-end.webp" alt="">
     </div>
     <h1>Branded shoes</h1>
     <span>
@@ -156,7 +180,7 @@ wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&dis
         <i class="fa fa-star"></i>
     </span>
     <p>$6500.00</p>
-    <button>Add to cart</button>
+    <button onclick="addToCart(34, 'Product 4', 35)">Add to Cart</button>
 
 </div>
 </div>
@@ -179,7 +203,7 @@ wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&dis
     </div>
     <div class="card">
         <div>
-            <img src="img/4th.webp" alt="">
+            <img src="img/DALL·E 2025-03-21 17.18.17 - A beautiful yellow kids' dress with a tutu-style skirt, displayed against a clean white background. The dress should have a soft, elegant fabric, a sl.webp" alt="">
         </div>
         <h1>LCR</h1>
         <span>
@@ -195,7 +219,7 @@ wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&dis
     
     <div class="card">
         <div>
-            <img src="img/shoes.webp" alt="">
+            <img src="img/DALL·E 2025-03-21 17.18.57 - A stylish red kids' dress with lace details and a bow, displayed against a clean white background. The dress should have a soft fabric, elegant design.webp" alt="">
         </div>
         <h1>Air Capsule</h1>
         <span>
@@ -234,7 +258,7 @@ wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&dis
      <section class="latest">
         <div class="product-intro">
             <h1>Popular <span> Product</span></h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p>A wrist watch that matches my style and my attitude.</p>
         </div>
      <div class="card-container">
         <div class="card">
@@ -307,18 +331,31 @@ wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&dis
       <section class="trends">
             <div class="product-intro">
                 <h1>Top <span> Trend</span></h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>This is now very Trending.</p>
             </div>
 
 </div>
-<div class="swiper-container">
-    <div class="swiper-wrapper">
-        <img src="img/pop3.jpg" alt="Image 1">
-        <img src="img/pop3.jpg" alt="Image 2">
-        <img src="img/pop3.jpg" alt="Image 3">
-        <img src="img/pop3.jpg" alt="Image 3">
-    </div>
+    <!-- Main Content -->
+
+        <!-- Carousel -->
+
+
+        <div class="w3-content w3-section">
+  <img class="mySlides" src="img/pexels-photo-1649771.webp">
+  <img class="mySlides" src="img/pexels-photo-205926.webp">
+  <img class="mySlides" src="img/pexels-photo-206395.webp">
+   <img class="mySlides" src="img/pexels-photo-815494.webp">
 </div>
+        <!-- <div class="carousel-container">
+            <div class="carousel">
+                <img src="img/pexels-photo-1649771.webp" alt="Slide 1">
+                <img src="img/pexels-photo-205926.webp" alt="Slide 2">
+                <img src="img/pexels-photo-206395.webp" alt="Slide 3">
+                <img src="img/pexels-photo-815494.webp" alt="Slide 4">
+                
+            </div>
+        </div> -->
+    </div>    
       </section>
 
       <footer>
@@ -339,23 +376,87 @@ wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&dis
 
       </footer>
       <script>
-        let index = 0;
-
-function autoSlide() {
-    const swiper = document.querySelector(".swiper-wrapper");
-    const images = document.querySelectorAll(".swiper-wrapper img");
-    index++;
-
-    if (index >= images.length) {
-        index = 0;
-    }
-
-    swiper.style.transform = `translateX(${-index * 100}%)`;
+    function addToCart(productId, name, price) {
+    fetch('/add-to-cart', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ productId, name, price, userId: 1 }) // Assume userId = 1
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            updateCartCount();
+            alert('Item added to cart!');
+        }
+    });
 }
 
-setInterval(autoSlide, 3000); // Change image every 3 seconds
+function openCart() {
+    document.getElementById("cart-modal").style.display = "block";
+    fetchCartItems();
+}
 
-       
+function closeCart() {
+    document.getElementById("cart-modal").style.display = "none";
+}
+
+function fetchCartItems() {
+    fetch('/get-cart?userId=1') // Assume userId = 1
+        .then(response => response.json())
+        .then(data => {
+            let cartList = document.getElementById("cart-items");
+            cartList.innerHTML = "";
+            data.forEach(item => {
+                let li = document.createElement("li");
+                li.textContent = `${item.name} - ₹${item.price}`;
+                cartList.appendChild(li);
+            });
+            document.getElementById("cart-count").textContent = data.length;
+        });
+}
+
+function updateCartCount() {
+    fetch('/get-cart?userId=1')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("cart-count").textContent = data.length;
+        });
+}
+
+// Load cart count on page load
+document.addEventListener("DOMContentLoaded", updateCartCount);
+
+
+   
+        function addToCart(productId, name, price) {
+    fetch('/add-to-cart', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ productId, name, price })
+    })
+    .then(response => response.json())
+    .then(data => alert(data.message))
+    .catch(error => console.error('Error:', error));
+}
+
+ 
+// first slides upper
+
+    var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+      
       </script>
 </body>
 </html>

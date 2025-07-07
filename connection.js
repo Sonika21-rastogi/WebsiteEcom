@@ -1,10 +1,10 @@
 const mysql = require('mysql');
 
 const conne = mysql.createConnection({
-    'host':'localhost',
-    'user':'root',
-    'password':'',
-    'database':'ecomm_db'
+    'host':process.env.HOST,
+    'user':process.env.USER,
+    'password':process.env.PASSWORD,
+    'database':process.env.DATABEASE,
 });
 
 module.exports = conne;
